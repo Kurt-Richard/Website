@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <title>Kurt Richard Portfolio</title>
+</head>
+<body>
+  <div class="navbar">
+    <div class="logo">
+      <img class="light-logo" src="Logo/LOGO_neu_black.png" alt="Logo Hellmodus" />
+      <img class="dark-logo" src="Logo/LOGO_neu_weiß.png" alt="Logo Dunkelmodus" />
+    </div>
+   
+  </div>
+  <div class="toggle-wrapper">
+  <label class="switch">
+    <input type="checkbox" onchange="toggleDarkMode(this)">
+    <span class="slider"></span>
+  </label>
+</div>
+
+<div id="imageModal" class="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+    <img id="modalImage" src="" alt="Preview" />
+    <div class="modal-caption" id="modalCaption">Bildbeschreibung</div>
+  </div>
+</div>
+  <main>
+    <div class="filters">
+      <button onclick="filterSelection('all')" data-category="all">All</button>
+      <button onclick="filterSelection('cinematography')" data-category="cinematography">Cinematography</button>
+      <button onclick="filterSelection('corporate')" data-category="corporate">Corporate</button>
+      <button onclick="filterSelection('photography')" data-category="photography">Photography</button>
+      <button onclick="filterSelection('filmchallenge')" data-category="filmchallenge">FilmChallenge</button>
+    </div>
+
+    <div class="gallery-wrapper">
+        <!-- 3 Spalten mit Bildern -->
+        <div class="gallery">
+            <img src="Stockx2/Sam-11.jpg" data-category="cinematography" alt="Cinematography 1">
+            <img src="Stock/Reveniu_Office-020.jpg" data-category="corporate" alt="Corporate 1">
+            <img src="Stock/Dennis-1.jpg" data-category="photography" alt="Photography 1">
+            <img src="swisstransfer_6bf8f20e-da57-41ae-bc50-a5ed74f8cd47/OST_GIF.mov" data-category="filmchallenge" alt="FilmChallenge 1">
+            <img src="https://via.placeholder.com/300x400" data-category="cinematography" alt="Cinematography 2">
+            <img src="https://via.placeholder.com/300x400" data-category="corporate" alt="Corporate 2">
+            <img src="https://via.placeholder.com/300x400" data-category="photography" alt="Photography 2">
+            <img src="https://via.placeholder.com/300x400" data-category="filmchallenge" alt="FilmChallenge 2">
+            <img src="https://via.placeholder.com/300x400" data-category="cinematography" alt="Cinematography 3">
+            <img src="https://via.placeholder.com/300x400" data-category="corporate" alt="Corporate 3">
+        </div>
+        <div class="gallery">
+            <img src="Stock/Headshots-11.jpg" data-category="photography" alt="Photography 3">
+            <img src="Stock/VESPA_B_W-2.jpg" data-category="filmchallenge" alt="FilmChallenge 3">
+            <img src="https://via.placeholder.com/300x400" data-category="cinematography" alt="Cinematography 4">
+            <img src="https://via.placeholder.com/300x400" data-category="corporate" alt="Corporate 4">
+            <img src="https://via.placeholder.com/300x400" data-category="photography" alt="Photography 4">
+            <img src="https://via.placeholder.com/300x400" data-category="filmchallenge" alt="FilmChallenge 4">
+           <!-- <img src="https://via.placeholder.com/300x400" data-category="cinematography" alt="Cinematography 5">
+            <img src="https://via.placeholder.com/300x400" data-category="corporate" alt="Corporate 5">
+            <img src="https://via.placeholder.com/300x400" data-category="photography" alt="Photography 5">
+            <img src="https://via.placeholder.com/300x400" data-category="filmchallenge" alt="FilmChallenge 5">-->
+        </div>
+        <div class="gallery">
+            <img src="Stock/Tamara Wald-7.jpg" data-category="cinematography" alt="Cinematography 6">
+            <img src="Stockx2/troina-4.JPG" data-category="corporate" alt="Corporate 6">
+            <img src="Stock/Reveniu_Office-086.jpg" data-category="photography" alt="Photography 6">
+            <img src="https://via.placeholder.com/300x400" data-category="filmchallenge" alt="FilmChallenge 6">
+            <img src="https://via.placeholder.com/300x400" data-category="cinematography" alt="Cinematography 7">
+            <img src="https://via.placeholder.com/300x400" data-category="corporate" alt="Corporate 7">
+            <img src="https://via.placeholder.com/300x400" data-category="photography" alt="Photography 7">
+            <img src="https://via.placeholder.com/300x400" data-category="filmchallenge" alt="FilmChallenge 7">
+            <img src="https://via.placeholder.com/300x400" data-category="cinematography" alt="Cinematography 8">
+            <img src="https://via.placeholder.com/300x400" data-category="corporate" alt="Corporate 8">
+        </div>
+
+        <div class="text-column">
+            
+            <img src="Stock/Matromonio.jpg" alt="Portrait Platzhalter">
+            <div class="name">
+                Kurt Richard
+            </div>
+            <p>
+              Born somewhere in southern German Countryside,<br> 
+              I’m an aspiring Cinematographer & Editor fascinated with beautiful imagery and
+              bringing your Vision to life.
+            </p>
+            <div class="nav-links">
+                <a href="cv.pdf" download>CV</a>
+                <a href="#contact">Contact</a>
+                <a href="https://instagram.com/polaroidparanoia" target="_blank">Instagram</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="contact-section" id="contact">
+      <form class="contact-form" action="https://formspree.io/f/xnndqyal" method="POST">
+        <h2>Contact</h2>
+        <p>xxx@kurtrichard.com</p>
+        <input type="text" name="Vorname" placeholder="Vorname" required />
+        <input type="text" name="Nachname" placeholder="Nachname" required />
+        <input type="email" name="Email" placeholder="E-Mail" required />
+        <textarea name="Nachricht" rows="5" placeholder="Nachricht" required></textarea>
+        <button type="submit">Senden</button>
+      </form>
+    </div>
+  </main>
+  <div id="imageModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div class="modal-content">
+      <img id="modalImage" src="" alt="Preview" />
+      <div class="modal-caption" id="modalCaption">Bildbeschreibung</div>
+    </div>
+  </div>
+  
+  <script>
+    
+    function filterSelection(category) {
+      const buttons = document.querySelectorAll('.filters button');
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      const images = document.querySelectorAll('.gallery img');
+      images.forEach(img => {
+        if (category === 'all' || img.dataset.category === category) {
+          img.classList.remove('hidden');
+        } else {
+          img.classList.add('hidden');
+        }
+      });
+
+      const activeBtn = document.querySelector(`.filters button[data-category="${category}"]`);
+      if (activeBtn) activeBtn.classList.add('active');
+    }
+
+    function toggleDarkMode(button) {
+      document.body.classList.toggle('dark-mode');
+      button.textContent = document.body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
+    }
+
+    window.onload = () => {
+      filterSelection('all');
+
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark-mode');
+        const toggleButton = document.querySelector('.toggle-mode');
+        if (toggleButton) toggleButton.textContent = 'Light Mode';
+      }
+    };
+    const captions = {
+        "Sam-11.jpg": {
+          type: "structured",
+          project: "Auf alten Fotos sieht man jünger aus",
+          description: "A shady bartender is confronted with his past.\nA Neo-Noir Shortfilm from 2nd Semester.",
+          client: "-",
+          director: "Kurt Richard",
+          credits: ["Cinematographer", "Editor"],
+          genre: "Shortfilm",
+          year: "2023",
+          country: "Deutschland"
+        },
+        "VESPA_B_W-2.jpg": {
+          type: "structured",
+          project: "VESPA B/W",
+          description: "A cinematic mood piece with urban vibes.",
+          client: "-",
+          director: "Kurt Richard",
+          credits: ["Cinematographer"],
+          genre: "Shortfilm",
+          year: "2023",
+          country: "Deutschland"
+        },
+        "placeholder": {
+          type: "text",
+          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        }
+      };
+
+
+  function openModal(src) {
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+    const modalCaption = document.getElementById("modalCaption");
+    modal.style.display = "block";
+    modalImg.src = src;
+
+    const filename = src.split("/").pop();
+    modalCaption.textContent = captions[filename] || captions["placeholder"];
+  }
+
+  function closeModal() {
+    document.getElementById("imageModal").style.display = "none";
+  }
+
+  function toggleDarkMode(input) {
+    document.body.classList.toggle('dark-mode', input.checked);
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll('.gallery img').forEach(img => {
+      img.addEventListener('click', () => openModal(img.src));
+    });
+
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.body.classList.add('dark-mode');
+      document.querySelector('.toggle-wrapper input').checked = true;
+    }
+  });
+  
+  </script>
+  <footer>
+    <p>
+              © Kurt Richard Pätzold – 
+      <a href="impressum.html">Impressum</a>
+    </p>
+  </footer>
+  
+</body>
+</html>
