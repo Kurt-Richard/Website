@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <title>Kurt Richard Portfolio</title>
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+      --border-color: #000000;
+      --hover-color: #f0f0f0;
+      --active-bg: #000000;
+      --active-text: #ffffff;
+    }
+
+    body.dark-mode {
+      --bg-color: #1e1e1e;
+      --text-color: #f0f0f0;
+      --border-color: #f0f0f0;
+      --hover-color: #333333;
+      --active-bg: #ffffff;
+      --active-text: #000000;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .carousel-container {
+      overflow-x: auto;
+      display: flex;
+      gap: 1rem;
+      padding: 2rem 0;
+    }
+
+    .carousel-container img {
+      flex: 0 0 auto;
+      max-width: 250px;
+      height: auto;
+      border-radius: 6px;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .modal-content {
+      margin: 5% auto;
+      display: block;
+      max-width: 90%;
+    }
+
+    .modal img {
+      width: 100%;
+      height: auto;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .description-section {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+
+    .description-section p {
+      display: flex;
+      align-items: flex-start;
+      margin: 0;
+      flex-wrap: wrap;
+    }
+
+    .description-label {
+      font-weight: bold;
+      display: inline-block;
+      width: 120px;
+      flex-shrink: 0;
+    }
+
+    .back-button {
+      display: inline-block;
+      padding: 0.8rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 26px;
+      background-color: transparent;
+      color: var(--text-color);
+      cursor: pointer;
+      font-family: Montserrat;
+      font-weight: 500;
+      font-size: 12px;
+      text-decoration: none !important;
+      transition: all 0.2s ease;
+      margin-top: 3rem;
+    }
+
+    .back-button:hover {
+      background-color: var(--hover-color);
+      color: var(--text-color);
+    }
+
+    .video-container {
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="burger-menu" id="burgerMenu" onclick="toggleMenu()">☰</div>
+    <nav class="mobile-nav" id="mobileNav">
+      <a href="#contact" onclick="closeMenu()">Contact</a>
+      <a href="CV-Kurt-Richard.pdf" download onclick="closeMenu()">CV</a>
+      <a href="https://instagram.com/polaroidparanoia" target="_blank" onclick="closeMenu()">Instagram</a>
+    </nav>
+    <div class="logo" onclick="goHome()">
+      <img class="light-logo" src="Logo/LOGO_neu_black.png" alt="Logo Hellmodus" />
+      <img class="dark-logo" src="Logo/LOGO_neu_weiß.png" alt="Logo Dunkelmodus" />
+    </div>
+  </div>
+
+  <div class="toggle-wrapper">
+    <label class="switch">
+      <input type="checkbox" onchange="toggleDarkMode(this)">
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <main style="max-width: 800px; margin: auto; padding: 2rem;">
+    <h1>FOXX K1 LAUNCH</h1>
+
+   <!--   <div class="video-container">
+      <iframe 
+        src="https://www.youtube.com/embed/nzdoUixAfoU" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+    </div>
+  
+    <div class="carousel-container">
+      <img src="Webseite_Media/01 Cinematography/AAFSMJA/Still 2025-05-12 142216_1.1.1.jpg" alt="Platzhalter 1" onclick="openImageModal(this.src)">
+      <img src="Webseite_Media/01 Cinematography/AAFSMJA/Still 2025-05-12 142231_1.1.3.jpg" alt="Platzhalter 2" onclick="openImageModal(this.src)">
+      <img src="Webseite_Media/01 Cinematography/AAFSMJA/Still 2025-05-12 142237_1.1.8.jpg" alt="Platzhalter 3" onclick="openImageModal(this.src)">
+      <img src="Webseite_Media/01 Cinematography/AAFSMJA/Still 2025-05-12 142245_1.1.10.jpg" alt="Platzhalter 4" onclick="openImageModal(this.src)">
+      <img src="Webseite_Media/01 Cinematography/AAFSMJA/Still 2025-05-12 142250_1.1.13.jpg" alt="Platzhalter 1" onclick="openImageModal(this.src)">
+      <img src="Webseite_Media/01 Cinematography/AAFSMJA/Still 2025-05-12 142257_1.1.16.jpg" alt="Platzhalter 2" onclick="openImageModal(this.src)">
+      <img src="Webseite_Media/01 Cinematography/AAFSMJA/Still 2025-05-12 142335_1.1.15.jpg" alt="Platzhalter 3" onclick="openImageModal(this.src)">
+      <img src="Webseite_Media/01 Cinematography/AAFSMJA/Still 2025-05-12 142335_1.1.16.jpg" alt="Platzhalter 4" onclick="openImageModal(this.src)">
+      <img src="Webseite_Media/01 Cinematography/AAFSMJA/Still 2025-05-12 142344_1.1.22.jpg" alt="Platzhalter 1" onclick="openImageModal(this.src)">
+      <img src="Webseite_Media/01 Cinematography/AAFSMJA/Still 2025-05-12 142344_1.1.23.jpg" alt="Platzhalter 2" onclick="openImageModal(this.src)">
+      <img src="Webseite_Media/01 Cinematography/AAFSMJA/Still 2025-05-12 142344_1.1.25.jpg" alt="Platzhalter 3" onclick="openImageModal(this.src)">
+    </div>
+-->
+    <section class="description-section">
+      <p><span class="description-label">INFO:</span> A short Aftermovie of the Product Launch of a brand new Product.</p>
+      <p><span class="description-label">CLIENT:</span> PRO AKTIV</p>
+      <p><span class="description-label">YEAR:</span> 2025</p>
+      <p><span class="description-label">GENRE:</span> Aftermovie</p>
+      <p><span class="description-label">COUNTRY:</span> Germany</p>
+    </section>
+
+    <a href="index.html" class="back-button">Back</a>
+  </main>
+
+  <div id="imageModal" class="modal" onclick="closeImageModal()">
+    <span class="close" onclick="closeImageModal()">&times;</span>
+    <img class="modal-content" id="modalImage">
+  </div>
+
+  <footer class="site-footer">
+    <p class="footer-text">© Kurt Richard Pätzold – <a href="impressum.html">Impressum</a></p>
+    <button id="scrollToTop" onclick="scrollToTop()">⬆</button>
+  </footer>
+
+  <script>
+    function toggleDarkMode(input) {
+      document.body.classList.toggle('dark-mode', input.checked);
+    }
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function goHome() {
+      window.location.href = 'index.html';
+    }
+
+    function openImageModal(src) {
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImage");
+      modal.style.display = "block";
+      modalImg.src = src;
+    }
+
+    function closeImageModal() {
+      const modal = document.getElementById("imageModal");
+      modal.style.display = "none";
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark-mode');
+        const toggleInput = document.querySelector('.toggle-wrapper input');
+        if (toggleInput) {
+          toggleInput.checked = true;
+        }
+      }
+    });
+  </script>
+</body>
+</html>
