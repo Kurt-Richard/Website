@@ -2,7 +2,10 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
   <title>Impressum</title>
+
   <style>
     body {
       font-family: sans-serif;
@@ -17,6 +20,19 @@
   </style>
 </head>
 <body>
+  <a href="index.html" class="logo">
+    <img class="light-logo" src="Logo/LOGO_neu_black.png" alt="Logo Hellmodus" />
+    <img class="dark-logo" src="Logo/LOGO_neu_weiß.png" alt="Logo Dunkelmodus" />
+  </a>
+  </div>
+  
+  <div class="toggle-wrapper">
+    <label class="switch">
+      <input type="checkbox" onchange="toggleDarkMode(this)">
+      <span class="slider"></span>
+    </label>
+  </div>
+  
   <h1>Impressum</h1>
   <p><strong>Angaben gemäß § 5 TMG</strong><br>
   Kurt Richard Pätzold<br>
@@ -39,9 +55,21 @@
   <p><strong>Datenschutz</strong><br>
     Die Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten (beispielsweise Name, Anschrift oder eMail-Adressen) erhoben werden, erfolgt dies, soweit möglich, stets auf freiwilliger Basis. Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben. Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich. Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten durch Dritte zur Übersendung von nicht ausdrücklich angeforderter Werbung und Informationsmaterialien wird hiermit ausdrücklich widersprochen. Die Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-Mails, vor.
     </p>
-    <p><strong>Google Analytics</strong><br>
-        Diese Website benutzt Google Analytics, einen Webanalysedienst der Google Inc. (”Google”). Google Analytics verwendet sog. ”Cookies”, Textdateien, die auf Ihrem Computer gespeichert werden und die eine Analyse der Benutzung der Website durch Sie ermöglicht. Die durch den Cookie erzeugten Informationen über Ihre Benutzung dieser Website (einschließlich Ihrer IP-Adresse) wird an einen Server von Google in den USA übertragen und dort gespeichert. Google wird diese Informationen benutzen, um Ihre Nutzung der Website auszuwerten, um Reports über die Websiteaktivitäten für die Websitebetreiber zusammenzustellen und um weitere mit der Websitenutzung und der Internetnutzung verbundene Dienstleistungen zu erbringen. Auch wird Google diese Informationen gegebenenfalls an Dritte übertragen, sofern dies gesetzlich vorgeschrieben oder soweit Dritte diese Daten im Auftrag von Google verarbeiten. Google wird in keinem Fall Ihre IP-Adresse mit anderen Daten der Google in Verbindung bringen. Sie können die Installation der Cookies durch eine entsprechende Einstellung Ihrer Browser Software verhindern; wir weisen Sie jedoch darauf hin, dass Sie in diesem Fall gegebenenfalls nicht sämtliche Funktionen dieser Website voll umfänglich nutzen können. Durch die Nutzung dieser Website erklären Sie sich mit der Bearbeitung der über Sie erhobenen Daten durch Google in der zuvor beschriebenen Art und Weise und zu dem zuvor benannten Zweck einverstanden.
-    </p>
+    
   <p style="margin-top: 2rem;">Zurück zur <a href="/">Startseite</a></p>
+  <script>
+    function toggleDarkMode(input) {
+      document.body.classList.toggle('dark-mode', input.checked);
+    }
+  
+    document.addEventListener("DOMContentLoaded", function () {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark-mode');
+        const toggleInput = document.querySelector('.toggle-wrapper input');
+        if (toggleInput) toggleInput.checked = true;
+      }
+    });
+  </script>
+  
 </body>
 </html>
